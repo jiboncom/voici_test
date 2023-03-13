@@ -30,6 +30,14 @@ jobs:
         shell: bash -l {0}
         run: voici build --contents content --output-dir dist
 
+      - name: Create extra folder
+        shell: bash -l {0}
+        run: mkdir dist/extras
+
+      - name: Copy extras
+        shell: bash -l {0}
+        run: cp extras/* dist/extras
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
